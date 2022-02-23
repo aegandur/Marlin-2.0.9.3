@@ -175,6 +175,13 @@
   #define Z_CS_PIN                         P1_08
 #endif
 
+#define Z2_STEP_PIN                         E1_STEP_PIN
+#define Z2_DIR_PIN                          E1_DIR_PIN
+#define Z2_ENABLE_PIN                       E1_ENABLE_PIN
+#ifndef Z2_CS_PIN
+  #define Z2_CS_PIN                         P1_08
+#endif
+
 #define E0_STEP_PIN                        P2_13
 #define E0_DIR_PIN                         P0_11
 #define E0_ENABLE_PIN                      P2_12
