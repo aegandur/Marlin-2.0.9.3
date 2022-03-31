@@ -935,7 +935,8 @@
   // Define probe X and Y positions for Z1, Z2 [, Z3 [, Z4]]
   // If not defined, probe limits will be used.
   // Override with 'M422 S<index> X<pos> Y<pos>'
-  #define Z_STEPPER_ALIGN_XY { {  50, 108 }, { 170,  108 } }
+  //#define Z_STEPPER_ALIGN_XY { {  50, 108 }, { 170,  108 } }
+  //#define Z_STEPPER_ALIGN_XY { {  50, 108 }, { 172,  108 } }
 
   /**
    * Orientation for the automatically-calculated probe positions.
@@ -991,7 +992,8 @@
 #if ENABLED(ASSISTED_TRAMMING)
 
   // Define positions for probe points.
-  #define TRAMMING_POINT_XY { {  60, 40 }, { 180,  40 }, { 180, 200 }, { 60, 200 } }
+  //#define TRAMMING_POINT_XY { {  60, 40 }, { 180,  40 }, { 180, 200 }, { 60, 200 } }
+  #define TRAMMING_POINT_XY { {  48, 20 }, { 200,  20 }, { 200, 190 }, { 48, 190 } }
 
   // Define position names for probe points.
   #define TRAMMING_POINT_NAME_1 "Front-Left"
@@ -1953,7 +1955,8 @@
   #define BABYSTEP_INVERT_Z false           // Change if Z babysteps should go the other way
   #define BABYSTEP_MILLIMETER_UNITS       // Specify BABYSTEP_MULTIPLICATOR_(XY|Z) in mm instead of micro-steps
   //#define BABYSTEP_MULTIPLICATOR_Z  1       // (steps or mm) Steps or millimeter distance for each Z babystep
-  #define BABYSTEP_MULTIPLICATOR_Z  0.003     // (steps or mm) Steps or millimeter distance for each Z babystep
+  //#define BABYSTEP_MULTIPLICATOR_Z  0.003     // (steps or mm) Steps or millimeter distance for each Z babystep
+  #define BABYSTEP_MULTIPLICATOR_Z  0.1     // (steps or mm) Steps or millimeter distance for each Z babystep
   #define BABYSTEP_MULTIPLICATOR_XY 1       // (steps or mm) Steps or millimeter distance for each XY babystep
 
   #define DOUBLECLICK_FOR_Z_BABYSTEPPING  // Double-click on the Status Screen for Z Babystepping.
@@ -2036,14 +2039,14 @@
  * the probe to be unable to reach any points.
  */
 #if PROBE_SELECTED && !IS_KINEMATIC
-  //#define PROBING_MARGIN_LEFT PROBING_MARGIN
-  #define PROBING_MARGIN_LEFT 50
-  //#define PROBING_MARGIN_RIGHT PROBING_MARGIN
-  #define PROBING_MARGIN_RIGHT 25
-  //#define PROBING_MARGIN_FRONT PROBING_MARGIN
-  #define PROBING_MARGIN_FRONT 10
-  //#define PROBING_MARGIN_BACK PROBING_MARGIN
-  #define PROBING_MARGIN_BACK 15
+  #define PROBING_MARGIN_LEFT PROBING_MARGIN
+  //#define PROBING_MARGIN_LEFT 50
+  #define PROBING_MARGIN_RIGHT PROBING_MARGIN
+  //#define PROBING_MARGIN_RIGHT 25
+  #define PROBING_MARGIN_FRONT PROBING_MARGIN
+  //#define PROBING_MARGIN_FRONT 10
+  #define PROBING_MARGIN_BACK PROBING_MARGIN
+  //#define PROBING_MARGIN_BACK 15
 #endif
 
 #if EITHER(MESH_BED_LEVELING, AUTO_BED_LEVELING_UBL)
@@ -2086,8 +2089,8 @@
  * Use M871 to set temperature/offset values manually.
  * For more details see https://marlinfw.org/docs/features/probe_temp_compensation.html
  */
-//#define PTC_PROBE    // Compensate based on probe temperature
-//#define PTC_BED      // Compensate based on bed temperature
+#define PTC_PROBE    // Compensate based on probe temperature
+#define PTC_BED      // Compensate based on bed temperature
 //#define PTC_HOTEND   // Compensate based on hotend temperature
 
 #if ANY(PTC_PROBE, PTC_BED, PTC_HOTEND)
